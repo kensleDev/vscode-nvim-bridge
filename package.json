@@ -1,0 +1,50 @@
+{
+  "name": "vscode-nvim-bridge",
+  "repository": {
+    "url": "https://github.com/kensleDev/vscode-nvim-bridge"
+  },
+  "displayName": "vscode-nvim-bridge",
+  "description": "Allow neovim to call certain vscode apis",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.76.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "vscode-nvim-bridge.toast",
+        "title": "toast"
+      }
+    ]
+  },
+  "scripts": {
+    "build": "tsc -p ./",
+    "package": "vsce package",
+    "compile": "pnpm run build && pnpm run package",
+    "watch": "tsc -watch -p ./",
+    "pretest": "pnpm run compile && pnpm run lint",
+    "lint": "eslint src --ext ts",
+    "test": "node ./out/test/runTest.js"
+  },
+  "devDependencies": {
+    "@types/glob": "^8.1.0",
+    "@types/mocha": "^10.0.1",
+    "@types/node": "16.x",
+    "@types/vscode": "^1.76.0",
+    "@typescript-eslint/eslint-plugin": "^5.53.0",
+    "@typescript-eslint/parser": "^5.53.0",
+    "@vscode/test-electron": "^2.2.3",
+    "eslint": "^8.34.0",
+    "glob": "^8.1.0",
+    "mocha": "^10.2.0",
+    "typescript": "^4.9.5"
+  },
+  "dependencies": {
+    "zod": "^3.21.4"
+  }
+}
